@@ -37,6 +37,9 @@ export default function LoginButton({ session }: { session: Session | null }) {
     window.location.href = url;
   };
 
+  // console.log("yoyoyoyoyoyoyoyyo1111111", session);
+  // console.log("yoyoyoyoyoyoyoyyo222222222", session?.user);
+
   if (session && session.user) {
     console.log("sessipn =>", session);
 
@@ -50,7 +53,7 @@ export default function LoginButton({ session }: { session: Session | null }) {
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn("cognito")}>Sign in</button>
+      <button onClick={() => signIn()}>Sign in</button>
       {/* {signInhandler} */}
       {/* {signIn("cognito")} */}
     </>
