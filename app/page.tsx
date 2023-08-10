@@ -17,6 +17,7 @@ export default async function Home() {
       <div style={{ border: "2px solid red", padding: "10px" }}>
         <LoginButton session={session} />
       </div>
+      <div>hi</div>
     </main>
   );
 }

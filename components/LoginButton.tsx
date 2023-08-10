@@ -23,9 +23,12 @@ export default function LoginButton({ session }: { session: Session | null }) {
   //   console.log("sessionX", sessionx);
   // }, []);
 
-  const handleSignOut = async (e: any) => {
-    console.log("call");
+  const handleFetch = async () => {
+    const url = "api/hello";
+    await fetch(url);
+  };
 
+  const handleSignOut = async (e: any) => {
     e.preventDefault();
     await signOut(); // this only clears the cookie session
     const url = `
@@ -37,16 +40,19 @@ export default function LoginButton({ session }: { session: Session | null }) {
     window.location.href = url;
   };
 
-  // console.log("yoyoyoyoyoyoyoyyo1111111", session);
-  // console.log("yoyoyoyoyoyoyoyyo222222222", session?.user);
-
   if (session && session.user) {
-    console.log("sessipn =>", session);
-
     return (
       <>
         Signed in as {session.user.email} <br />
         <button onClick={(e) => handleSignOut(e)}>Sign out</button>
+        <div>
+          <button
+            style={{ margin: "10px", padding: "10px" }}
+            onClick={() => handleFetch()}
+          >
+            fetch
+          </button>
+        </div>
       </>
     );
   }
